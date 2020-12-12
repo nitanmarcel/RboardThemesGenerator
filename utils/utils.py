@@ -1,3 +1,4 @@
+import os
 from colorsys import rgb_to_hls, hls_to_rgb, rgb_to_hsv
 from webcolors import rgb_to_hex
 from uuid import uuid4
@@ -25,3 +26,10 @@ def sort_colors(palette):
 
 def generate_id(lenght=20):
     return uuid4().hex[:lenght]  # + ''.join(str(random.randint(0,10)) for x in range(6))
+
+def clear_tmpdir():
+    for folderName, subfolders, filenames in os.walk("tmp/"):
+        for filename in filenames:
+            if not filename.endswith(".gitkeep"):
+                filePath = os.path.join(folderName, filename)
+                os.remove(filePath)

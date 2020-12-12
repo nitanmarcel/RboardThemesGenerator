@@ -10,6 +10,7 @@ from utils import utils, types
 
 
 def main(hue=None, luminosity="dark", count=500, seed=None):
+    utils.clear_tmpdir()
     print("Generating")
     color_generator = randomcolor.RandomColor(seed=seed)
     rand_color = color_generator.generate(hue=hue, luminosity=luminosity, count=count * 3, format_="rgbArray")
@@ -79,12 +80,7 @@ def main(hue=None, luminosity="dark", count=500, seed=None):
                     filePath = os.path.join(folderName, filename)
                     zipObj.write(filePath, os.path.basename(filePath))
 
-    for folderName, subfolders, filenames in os.walk("tmp/"):
-        for filename in filenames:
-            if not filename.endswith(".gitkeep"):
-                filePath = os.path.join(folderName, filename)
-                os.remove(filePath)
-
+    utils.clear_tmpdir()
     print(f"Generated {count} themes")
 
 
