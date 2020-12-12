@@ -1,0 +1,92 @@
+
+.keytop {
+    elevation: 1.0;
+}
+.keytop.for-candidate-key,
+.keytop.for-dashboard-key,
+.keytop.for-category-key,
+.keytop.transparent {
+    elevation: 0.0;
+}
+
+/* MD2 */
+@def color_state_border_key_action_pressed #3C4043FF;
+@def color_state_border_key_action %c1%FF;
+@def color_label_space_key %c3%FF;
+@def color_state_key_pressed #3C4043FF;
+@def color_state_key %c1%FF;
+/* temp */
+@def color_state_key_dark_pressed #3C4043FF;
+@def color_state_key_dark %c1%FF;
+
+.keytop,
+.keytop.for-numpad-big-panel {
+    elevation: 1;
+}
+.keytop.for-space-bar {
+    background_shape: rectangle;
+}
+.keytop {
+    padding_ratio_left: 0.7;
+    padding_ratio_top: 0.85;
+    padding_ratio_right: 0.7;
+    padding_ratio_bottom: 0.85;
+    shadow_color: %c1%00;
+    edge_width: 1;
+    edge_color: #3C4043FF;
+}
+.keytop.dark,
+.keytop.for-action-key {
+    edge_color: %c1%FF;
+}
+.keytop.for-numpad-big-panel-holder {
+    elevation: 0;
+    background_color: %c1%00;
+    padding_ratio_left: 0;
+    padding_ratio_top: 0;
+    padding_ratio_right: 0;
+    padding_ratio_bottom: 0;
+}
+.divider.for-numpad-big-panel {
+    visibility: gone;
+}
+
+.keytop.dark.for-numpad-big-panel,
+.keytop.for-numpad-big-panel {
+    elevation: 1;
+    background_color: @color_state_key;
+    background_corner_radius: @default_background_corner_radius;
+}
+
+.keytop.dark.for-numpad,
+.keytop.for-numpad {
+    padding_ratio_left: 1.4;
+    padding_ratio_top: 1.2;
+    padding_ratio_right: 1.4;
+    padding_ratio_bottom: 1.2;
+}
+
+.keytop.dark.for-scrollable-key-holder.for-numpad,
+.keytop.for-scrollable-key-holder.for-numpad {
+    background_color: %c1%00;
+}
+
+.icon.for-action-key {
+    color: %c3%FF
+}
+.icon.for-action-key.for-action-default-key {
+    color: @color_label;
+    alpha: 1;
+}
+.keytop.for-action-key:pressed {
+    background_color: @color_state_border_key_action_pressed;
+}
+.keytop.for-action-key {
+    background_color: @color_state_border_key_action;
+}
+.keytop.for-action-key.for-action-default-key:pressed {
+    background_color: @color_state_key_dark_pressed;
+}
+.keytop.for-action-key.for-action-default-key {
+    background_color: @color_state_key_dark;
+}

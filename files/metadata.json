@@ -1,0 +1,19 @@
+{
+  "format_version": 3,
+  "id": "gen.%genID%.borderless",
+  "name": "Generated theme by %username%",
+  "prefer_key_border": false,
+  "is_light_theme": "%isLight%",
+  "lock_key_border": true,
+  "style_sheets": [
+    "generated.css"
+  ],
+  "flavors": [
+    {
+      "type": "BORDER",
+      "style_sheets": [
+        "generated_border.css"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+webcolors
+randomcolor
+cairosvg
