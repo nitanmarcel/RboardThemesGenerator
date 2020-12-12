@@ -64,8 +64,9 @@ def main(hue=None, luminosity="dark", count=500, seed=None):
             for folderName, subfolders, filenames in os.walk("tmp/"):
                 for filename in filenames:
                     if filename.endswith(".css") or filename.endswith(".json"):
-                        filePath = os.path.join(folderName, filename)
-                        zipObj.write(filePath, os.path.basename(filePath))
+                        if not filename.endswith(".gitkeep"):
+                            filePath = os.path.join(folderName, filename)
+                            zipObj.write(filePath, os.path.basename(filePath))
 
         svg2png(bytestring=svg, write_to=f"tmp/0x{file_id}")
 
@@ -74,14 +75,15 @@ def main(hue=None, luminosity="dark", count=500, seed=None):
     with zipfile.ZipFile(f"out/Gen{pack_id}.pack", "w") as zipObj:
         for folderName, subfolders, filenames in os.walk("tmp/"):
             for filename in filenames:
-                if not filename.endswith(".css") and not filename.endswith(".json"):
+                if not filename.endswith(".css") and not filename.endswith(".json") and not filename.endswith(".gitkeep"):
                     filePath = os.path.join(folderName, filename)
                     zipObj.write(filePath, os.path.basename(filePath))
 
     for folderName, subfolders, filenames in os.walk("tmp/"):
         for filename in filenames:
-            filePath = os.path.join(folderName, filename)
-            os.remove(filePath)
+            if not filename.endswith(".gitkeep"):
+                filePath = os.path.join(folderName, filename)
+                os.remove(filePath)
 
     print(f"Generated {count} themes")
 
