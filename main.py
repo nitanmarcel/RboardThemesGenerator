@@ -99,8 +99,9 @@ if __name__ == "__main__":
     luminosity = None
     seed = args.seed
     count = args.count or 500
-    if args.hue is not None and args.hue in ["red", "orange", "yellow", "purple", "pink", "monochrome"]:
-        hue = args.hue
+    if args.hue is not None:
+        if args.hue in ["red", "orange", "yellow", "purple", "pink", "monochrome"] or args.hue.isdigit():
+            hue = args.hue
     if args.luminosity is not None and args.luminosity in ["bright", "light", "dark"]:
         luminosity = args.luminosity
     main(hue, luminosity, count, seed)
